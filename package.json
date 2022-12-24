@@ -1,0 +1,23 @@
+{
+  "name": "full-course",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sujeewasandeepa/node-full-course.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sujeewasandeepa/node-full-course/issues"
+  },
+  "homepage": "https://github.com/sujeewasandeepa/node-full-course#readme",
+  "dependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
