@@ -7,20 +7,20 @@ console.log(circleArea);
 const server = http.createServer((req, res) => {
 
   if (req.url === '/') {
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({
-      data: 'Hello World!'
-    }));
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    // res.end(JSON.stringify({
+    //   data: 'Hello World!'
+    // }));
+    res.write("<h1>Home</h1>")
+    res.end();
   } else if (req.url === '/about') {
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({
-      data: 'You are in the about page'
-    }));
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.write("<h1>About</h1>")
+    res.end();
   } else {
-    res.writeHead(404, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({
-      data: 'Page not found!'
-    }));
+    res.writeHead(404, { 'Content-Type': 'text/html' });
+    res.write("<h1>Page not found!</h1>");
+    res.end();
   }
 });
 
