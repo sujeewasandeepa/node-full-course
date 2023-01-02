@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const bookRouter = require('./book');
 
 router.get('/', (req, res) => {
   // myEvent.emit('test-event');
@@ -16,25 +17,17 @@ router.get('/', (req, res) => {
 // })
 //
 // We can chain these functions like this,
-router
-  .route('/book')
-  .get((req, res) => {
-    res.send("All books");
-  })
-  .post((req, res) => {
-    res.json({ data: "Book is stored" });
-  })
-
-router.get("/book/:id", (req, res) => {
-  res.send(`Single book of ID: ${req.params.id}`);
-})
 
 router.post("/", (req, res) => {
   res.json({ name: "Sujeewa Sandeepa" });
 })
 
+router.use(bookRouter);
+
 router.all('/*', (req, res) => {
   res.send("Page not found!");
 })
+
+
 
 module.exports = router;
