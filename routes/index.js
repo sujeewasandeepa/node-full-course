@@ -22,7 +22,9 @@ router.post("/", (req, res) => {
   res.json({ name: "Sujeewa Sandeepa" });
 })
 
-router.use(bookRouter);
+// router.use(bookRouter);
+// can define this like this, and remove '/book/' parts from the book.js file
+router.use('/book', bookRouter);
 
 router.all('/*', (req, res) => {
   res.send("Page not found!");
