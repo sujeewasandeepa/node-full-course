@@ -1,22 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const bookRouter = require('./book');
+const path = require('path');
 
 router.get('/', (req, res) => {
   // myEvent.emit('test-event');
-  res.send("Hello world!");
+  // res.send("Hello world!");
+  res.sendFile(path.join(__dirname, '/../pages/home.html'), { name: 'Sujeewa' });
 })
 
-// let's try a dynamic route
-// app.get("/book", (req, res) => {
-//     res.send("All books");
-// })
-//
-// app.post("/book", (req, res) => {
-//     res.json({ data: "book is stored" });
-// })
-//
-// We can chain these functions like this,
 
 router.post("/", (req, res) => {
   res.json({ name: "Sujeewa Sandeepa" });
@@ -27,7 +19,7 @@ router.post("/", (req, res) => {
 router.use('/book', bookRouter);
 
 router.all('/*', (req, res) => {
-  res.send("Page not found!");
+  res.sendFile(path.join(__dirname, '/../pages/404.html'));
 })
 
 
