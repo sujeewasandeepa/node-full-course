@@ -5,6 +5,8 @@ const routes = require("./routes/index");
 const app = express();
 const myEvent = new EventEmitter();
 
+app.set('view engine', 'pug');
+
 myEvent.on('test-event', () => {
     console.log("This event is listening");
 })

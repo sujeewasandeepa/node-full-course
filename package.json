@@ -20,6 +20,7 @@
   "homepage": "https://github.com/sujeewasandeepa/node-full-course#readme",
   "dependencies": {
     "express": "^4.18.2",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "pug": "^3.0.2"
   }
 }
