@@ -14,7 +14,7 @@ bookRouter
     const db = await connect();
 
     await db.collection("book").insertOne(req.body);
-    res.json({ data: "Book is stored" });
+    res.status(201).res.json({ data: "Book is stored" });
   });
 
 bookRouter
@@ -36,7 +36,7 @@ bookRouter
     const _id = ObjectID(req.params.id);
     const db = await connect();
     await db.collection('book').deleteOne({ _id });
-    res.json({"data": "Book is deleted!"});
+    res.status(204);
   });
 
 module.exports = bookRouter;
