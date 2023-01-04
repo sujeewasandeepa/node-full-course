@@ -1,6 +1,7 @@
 const express = require('express');
 const EventEmitter = require('events');
 const routes = require("./routes/index");
+const bodyParser = require("body-parser");
 
 const app = express();
 const myEvent = new EventEmitter();
@@ -13,6 +14,7 @@ myEvent.on('test-event', () => {
 
 const PORT = 3001;
 
+app.use(bodyParser.json())
 app.use(routes);
 
 app.listen(PORT, () => {
