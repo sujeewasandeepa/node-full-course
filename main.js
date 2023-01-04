@@ -2,6 +2,7 @@ const express = require('express');
 const EventEmitter = require('events');
 const routes = require("./routes/index");
 const bodyParser = require("body-parser");
+const connectDB = require('./database/db');
 
 const app = express();
 const myEvent = new EventEmitter();
@@ -17,6 +18,9 @@ const PORT = 3001;
 app.use(bodyParser.json())
 app.use(routes);
 
-app.listen(PORT, () => {
-    console.log(`Server is listening at ${PORT}`);
+connectDB().then(() => {
+    app.listen(PORT, () => {
+        console.log(`Server is listening at ${PORT}`);
+    })
 })
+
