@@ -4,13 +4,15 @@ const Book = require("../models/Book");
 exports.index = async (req, res) => {
     const books = await Book.find();
     res.json(books);
-};
-
+}; 
+ 
 exports.store = async (req, res) => {
-    const db = await connect();
-
-    await db.collection("book").insertOne(req.body);
-    res.status(201).res.json({ data: "Book is stored" });
+    try {
+        await Book.create(req.body);
+        res.json({"data" : "Book is created!"})
+    } catch (err) {
+        res.json(err);
+    }
 }
 
 exports.show = async (req, res) => {
